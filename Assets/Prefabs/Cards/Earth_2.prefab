@@ -301,6 +301,12 @@ PrefabInstance:
       propertyPath: _element
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7218573196067125437, guid: cc56a838213f7cb4898666b205f3a49f,
+        type: 3}
+      propertyPath: _projectilePrefab
+      value: 
+      objectReference: {fileID: 8366129545764732572, guid: d6c72dc397d81aa4fa1a18416c6bae1c,
+        type: 3}
     - target: {fileID: 8687011310194358881, guid: cc56a838213f7cb4898666b205f3a49f,
         type: 3}
       propertyPath: m_SizeDelta.x

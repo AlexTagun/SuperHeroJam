@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class HandController : MonoBehaviour {
     [SerializeField] private UICard[] _deckRank1;
@@ -10,6 +12,11 @@ public class HandController : MonoBehaviour {
     [SerializeField] private RectTransform _playContainer;
 
     private List<UICard> _hand = new List<UICard>();
+    private PlayerController _playerController;
+
+    private void Awake() {
+        _playerController = GameObject.FindWithTag("GameController").GetComponent<PlayerController>();
+    }
 
     public void FillHand() {
         while (_hand.Count < 5) {
@@ -49,6 +56,9 @@ public class HandController : MonoBehaviour {
 
     public void PlayCard(UICard card) {
         _hand.Remove(card);
-        card.Play();
+        var projectile = Instantiate(card.ProjectilePrefab, _playerController.CurProjectileStartPoint);
+        
+        Destroy(card.gameObject);
+        FillHand();
     }
 }

@@ -87,6 +87,8 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         // card.Item = null;
         // EventManager.HandleOnItemSwapped();
         // Destroy(placeHolder);
+        
+        if(canPlayCard) _handController.PlayCard(card);
     }
 
     public void OnPointerDown(PointerEventData eventData) {

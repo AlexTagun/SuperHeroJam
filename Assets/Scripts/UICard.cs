@@ -13,17 +13,9 @@ public enum ElementType {
 public class UICard : MonoBehaviour {
     [SerializeField] private ElementType _element;
     [SerializeField] private int _rank;
-    [SerializeField] private float _damage;
+    [SerializeField] private Projectile _projectilePrefab;
 
     public ElementType Element => _element;
     public int Rank => _rank;
-
-    public void SetData() {
-        
-    }
-
-    public void Play() {
-        
-    }
-    
+    public Projectile ProjectilePrefab => _projectilePrefab;
 }
