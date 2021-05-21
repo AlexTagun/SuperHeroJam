@@ -21,5 +21,9 @@ public class UICard : MonoBehaviour {
     public void SetData() {
         
     }
+
+    public void Play() {
+        
+    }
     
 }

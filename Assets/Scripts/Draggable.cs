@@ -46,7 +46,8 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData) {
         var isOnUICard = _handController.IsOnUICard(icon.transform as RectTransform);
-        if (isOnUICard != null) {
+        var canPlayCard = _handController.CanPlayCard(icon.transform as RectTransform);
+        if (!canPlayCard && isOnUICard != null) {
             _handController.MergeCards(card, isOnUICard);
         }
         EventManager.IsDragging = false;

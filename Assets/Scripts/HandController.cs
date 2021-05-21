@@ -7,6 +7,7 @@ public class HandController : MonoBehaviour {
     [SerializeField] private UICard[] _deckRank1;
     [SerializeField] private UICard[] _deckRank2;
     [SerializeField] private RectTransform _handContainer;
+    [SerializeField] private RectTransform _playContainer;
 
     private List<UICard> _hand = new List<UICard>();
 
@@ -39,5 +40,15 @@ public class HandController : MonoBehaviour {
         }
 
         return null;
+    }
+
+    public bool CanPlayCard(RectTransform rectTransform) {
+        var pos = _playContainer.InverseTransformPoint(rectTransform.position);
+        return _playContainer.rect.Contains(pos);
+    }
+
+    public void PlayCard(UICard card) {
+        _hand.Remove(card);
+        card.Play();
     }
 }
