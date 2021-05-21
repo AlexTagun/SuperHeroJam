@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,6 +12,11 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     [SerializeField] private Transform icon;
 
     private GameObject placeHolder = null;
+    private HandController _handController;
+
+    private void Awake() {
+        _handController = GameObject.FindWithTag("GameController").GetComponent<HandController>();
+    }
 
     public void OnBeginDrag(PointerEventData eventData) {
         placeHolder = gameObject;
@@ -39,6 +45,10 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     }
 
     public void OnEndDrag(PointerEventData eventData) {
+        var isOnUICard = _handController.IsOnUICard(icon.transform as RectTransform);
+        if (isOnUICard != null) {
+            _handController.MergeCards(card, isOnUICard);
+        }
         EventManager.IsDragging = false;
         // int newSiblingIndex = placeHolderParent.childCount;
         icon.transform.SetParent(transform);

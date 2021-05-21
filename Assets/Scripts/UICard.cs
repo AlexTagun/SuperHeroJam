@@ -11,12 +11,15 @@ public enum ElementType {
 }
 
 public class UICard : MonoBehaviour {
-    [SerializeField] private ElementType element;
-    [SerializeField] private int rank;
-    [SerializeField] private float damage;
-    
+    [SerializeField] private ElementType _element;
+    [SerializeField] private int _rank;
+    [SerializeField] private float _damage;
+
+    public ElementType Element => _element;
+    public int Rank => _rank;
 
     public void SetData() {
         
     }
+    
 }

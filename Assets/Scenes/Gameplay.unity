@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 81883995}
   m_Layer: 0
   m_Name: Controllers
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,10 +151,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7961ddbaacc41124ebfae49103ce3d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deck:
+  _deckRank1:
   - {fileID: 1805079015856515781, guid: a8c49309afbe4d3488360fd9543d8b31, type: 3}
   - {fileID: 1805079015856515781, guid: b16b5bba531e4754492a7a330955a247, type: 3}
   - {fileID: 1805079015856515781, guid: c95f1df9a7c835843a58f4dcacb735dc, type: 3}
+  _deckRank2:
+  - {fileID: 1805079015856515781, guid: c4e8801c4411cd44aa1bf288c79affd0, type: 3}
+  - {fileID: 1805079015856515781, guid: c6472d9988245924babd560f77a753c1, type: 3}
+  - {fileID: 1805079015856515781, guid: 72fd560f34075994eb3725d92469d537, type: 3}
   _handContainer: {fileID: 1936425049}
 --- !u!114 &81883996
 MonoBehaviour:
@@ -181,7 +185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1066125042
 GameObject:
@@ -273,7 +277,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1257714020
 GameObject:
@@ -450,7 +454,7 @@ RectTransform:
   m_Children:
   - {fileID: 1936425049}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -582,5 +586,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -130,12 +130,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7218573196067125437, guid: cc56a838213f7cb4898666b205f3a49f,
         type: 3}
+      propertyPath: _rank
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218573196067125437, guid: cc56a838213f7cb4898666b205f3a49f,
+        type: 3}
       propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7218573196067125437, guid: cc56a838213f7cb4898666b205f3a49f,
         type: 3}
+      propertyPath: _damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218573196067125437, guid: cc56a838213f7cb4898666b205f3a49f,
+        type: 3}
       propertyPath: element
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7218573196067125437, guid: cc56a838213f7cb4898666b205f3a49f,
+        type: 3}
+      propertyPath: _element
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
