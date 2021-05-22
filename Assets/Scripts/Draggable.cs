@@ -13,9 +13,11 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     private GameObject placeHolder = null;
     private HandController _handController;
+    private EnergyController _energyController;
 
     private void Awake() {
         _handController = GameObject.FindWithTag("GameController").GetComponent<HandController>();
+        _energyController = GameObject.FindWithTag("GameController").GetComponent<EnergyController>();
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
@@ -50,6 +52,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         if (canPlayCard == -1 && isOnUICard != null) {
             _handController.MergeCards(card, isOnUICard);
         }
+
         EventManager.IsDragging = false;
         // int newSiblingIndex = placeHolderParent.childCount;
         icon.transform.SetParent(transform);
@@ -87,8 +90,9 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         // card.Item = null;
         // EventManager.HandleOnItemSwapped();
         // Destroy(placeHolder);
-        
-        if(canPlayCard != -1) _handController.PlayCard(card, canPlayCard);
+
+        if (canPlayCard != -1 && _energyController.CurEnergy >= card.EnergyCost)
+            _handController.PlayCard(card, canPlayCard);
     }
 
     public void OnPointerDown(PointerEventData eventData) {

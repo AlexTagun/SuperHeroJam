@@ -12,16 +12,33 @@ public class HandController : MonoBehaviour {
     [SerializeField] private RectTransform _leftLine;
     [SerializeField] private RectTransform _middleLine;
     [SerializeField] private RectTransform _rightLine;
+    [SerializeField] private float _drawCardTime;
+    [SerializeField] private int _maxCardsInHand;
+    [SerializeField] private int _startCardCount;
 
     private List<UICard> _hand = new List<UICard>();
     private PlayerController _playerController;
+    private EnergyController _energyController;
 
     private void Awake() {
         _playerController = GameObject.FindWithTag("GameController").GetComponent<PlayerController>();
+        _energyController = GameObject.FindWithTag("GameController").GetComponent<EnergyController>();
+        DrawCard(_startCardCount);
+
+        StartCoroutine(DrawCoroutine());
     }
 
-    public void FillHand() {
-        while (_hand.Count < 5) {
+    private IEnumerator DrawCoroutine() {
+        while (true) {
+            yield return new WaitForSeconds(_drawCardTime);
+
+            DrawCard(1);
+        }
+    }
+
+    private void DrawCard(int count) {
+        for (int i = 0; i < count; i++) {
+            if (_hand.Count == _maxCardsInHand) break;
             var newCard = Instantiate(_deckRank1[Random.Range(0, _deckRank1.Length)], _handContainer);
             _hand.Add(newCard);
         }
@@ -38,7 +55,7 @@ public class HandController : MonoBehaviour {
         Destroy(card2.gameObject);
 
         _hand.Add(newCard);
-        FillHand();
+        // FillHand();
     }
 
     public UICard IsOnUICard(RectTransform rectTransform, UICard draggableCard) {
@@ -55,10 +72,10 @@ public class HandController : MonoBehaviour {
     public int CanPlayCard(RectTransform rectTransform) {
         var pos = _leftLine.InverseTransformPoint(rectTransform.position);
         if (_leftLine.rect.Contains(pos)) return 0;
-        
+
         pos = _middleLine.InverseTransformPoint(rectTransform.position);
         if (_middleLine.rect.Contains(pos)) return 1;
-        
+
         pos = _rightLine.InverseTransformPoint(rectTransform.position);
         if (_rightLine.rect.Contains(pos)) return 2;
         return -1;
@@ -68,9 +85,9 @@ public class HandController : MonoBehaviour {
         _hand.Remove(card);
         var projectile = Instantiate(card.ProjectilePrefab, _playerController.projectileStartPoints[lineIndex]);
         _playerController.UpdateState(lineIndex);
-
+        _energyController.SpendEnergy(card.EnergyCost);
         Destroy(card.gameObject);
-        FillHand();
+        // FillHand();
         projectile.StartMove();
     }
 }

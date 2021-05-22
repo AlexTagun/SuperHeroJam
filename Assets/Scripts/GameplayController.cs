@@ -7,7 +7,6 @@ public class GameplayController : MonoBehaviour {
     [SerializeField] private HandController _handController;
 
     private void Start() {
-        _handController.FillHand();
-        
+        // _handController.DrawCard();
     }
 }
