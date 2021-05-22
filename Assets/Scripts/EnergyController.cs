@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnergyController : MonoBehaviour {
     [SerializeField] private int _maxEnergy;
     [SerializeField] private int _startEnergy;
     [SerializeField] private TextMeshProUGUI energyText;
+    [SerializeField] private Image energyBar;
     [SerializeField] private float gainTime;
     [SerializeField] private int gainNum;
 
@@ -32,6 +34,7 @@ public class EnergyController : MonoBehaviour {
 
     private void UpdateText() {
         energyText.text = $"{_curEnergy}/{_maxEnergy}";
+        energyBar.fillAmount = _curEnergy / (float) _maxEnergy;
     }
 
     public void AddEnergy(int value) {
