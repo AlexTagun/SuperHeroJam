@@ -86,7 +86,7 @@ public class HandController : MonoBehaviour {
     private void HandleMergeForm(UICard card1, UICard card2) {
         var baseCard = card1.Type == CardType.Base ? card1 : card2;
         var formCard = card1.Type == CardType.Form ? card1 : card2;
-        if(baseCard.Form != FormType.Base) return;
+        if (baseCard.Form != FormType.Base) return;
 
         UICard[] pool = new UICard[0];
         switch (formCard.Form) {
@@ -148,6 +148,7 @@ public class HandController : MonoBehaviour {
     }
 
     public void PlayCard(UICard card, int lineIndex) {
+        if(card.Type != CardType.Base) return;
         _hand.Remove(card);
 
         Projectile projectile;
@@ -159,10 +160,10 @@ public class HandController : MonoBehaviour {
         } else {
             projectile = Instantiate(card.ProjectilePrefab, _playerController.projectileStartPoints[lineIndex]);
             _playerController.UpdateState(lineIndex);
-            _energyController.SpendEnergy(card.EnergyCost);
             projectile.StartMove();
         }
 
+        _energyController.SpendEnergy(card.EnergyCost);
         Destroy(card.gameObject);
     }
 
