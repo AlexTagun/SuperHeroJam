@@ -148,6 +148,7 @@ public class HandController : MonoBehaviour {
     }
 
     public void PlayCard(UICard card, int lineIndex) {
+        if(card.Type != CardType.Base) return;
         _hand.Remove(card);
 
         Projectile projectile;
