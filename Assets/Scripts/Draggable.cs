@@ -47,7 +47,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnEndDrag(PointerEventData eventData) {
         var isOnUICard = _handController.IsOnUICard(icon.transform as RectTransform, card);
         var canPlayCard = _handController.CanPlayCard(icon.transform as RectTransform);
-        if (!canPlayCard && isOnUICard != null) {
+        if (canPlayCard == -1 && isOnUICard != null) {
             _handController.MergeCards(card, isOnUICard);
         }
         EventManager.IsDragging = false;
@@ -88,7 +88,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         // EventManager.HandleOnItemSwapped();
         // Destroy(placeHolder);
         
-        if(canPlayCard) _handController.PlayCard(card);
+        if(canPlayCard != -1) _handController.PlayCard(card, canPlayCard);
     }
 
     public void OnPointerDown(PointerEventData eventData) {

@@ -9,7 +9,9 @@ public class HandController : MonoBehaviour {
     [SerializeField] private UICard[] _deckRank1;
     [SerializeField] private UICard[] _deckRank2;
     [SerializeField] private RectTransform _handContainer;
-    [SerializeField] private RectTransform _playContainer;
+    [SerializeField] private RectTransform _leftLine;
+    [SerializeField] private RectTransform _middleLine;
+    [SerializeField] private RectTransform _rightLine;
 
     private List<UICard> _hand = new List<UICard>();
     private PlayerController _playerController;
@@ -50,14 +52,22 @@ public class HandController : MonoBehaviour {
         return null;
     }
 
-    public bool CanPlayCard(RectTransform rectTransform) {
-        var pos = _playContainer.InverseTransformPoint(rectTransform.position);
-        return _playContainer.rect.Contains(pos);
+    public int CanPlayCard(RectTransform rectTransform) {
+        var pos = _leftLine.InverseTransformPoint(rectTransform.position);
+        if (_leftLine.rect.Contains(pos)) return 0;
+        
+        pos = _middleLine.InverseTransformPoint(rectTransform.position);
+        if (_middleLine.rect.Contains(pos)) return 1;
+        
+        pos = _rightLine.InverseTransformPoint(rectTransform.position);
+        if (_rightLine.rect.Contains(pos)) return 2;
+        return -1;
     }
 
-    public void PlayCard(UICard card) {
+    public void PlayCard(UICard card, int lineIndex) {
         _hand.Remove(card);
-        var projectile = Instantiate(card.ProjectilePrefab, _playerController.CurProjectileStartPoint);
+        var projectile = Instantiate(card.ProjectilePrefab, _playerController.projectileStartPoints[lineIndex]);
+        _playerController.UpdateState(lineIndex);
 
         Destroy(card.gameObject);
         FillHand();
