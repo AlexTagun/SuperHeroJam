@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class EnemyController : MonoBehaviour {
     public Transform[] projectileStartPoints;
     [SerializeField] private Transform[] heroPoints;
-    [SerializeField] private Transform enemyPrefab;
+    public Transform enemyPrefab;
     [SerializeField] private Vector2 moveDelayRange;
     [SerializeField] private SkeletonAnimation skeletonAnimation;
 
