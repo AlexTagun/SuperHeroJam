@@ -39,8 +39,9 @@ public class HandController : MonoBehaviour {
         FillHand();
     }
 
-    public UICard IsOnUICard(RectTransform rectTransform) {
+    public UICard IsOnUICard(RectTransform rectTransform, UICard draggableCard) {
         foreach (var card in _hand) {
+            if (card.transform.position == draggableCard.transform.position) continue;
             var cardRect = card.transform as RectTransform;
             var pos = cardRect.InverseTransformPoint(rectTransform.position);
             if (cardRect.rect.Contains(pos)) return card;

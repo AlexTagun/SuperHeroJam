@@ -8,7 +8,6 @@ public class ProjectileFactory : MonoBehaviour {
     [SerializeField] private Projectile[] pool;
     [SerializeField] private int[] weights;
     [SerializeField] private Vector2 reloadRange;
-    [SerializeField] private Transform projectileStartPoint;
 
     private EnemyController _enemyController;
 
