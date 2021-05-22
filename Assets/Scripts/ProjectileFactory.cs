@@ -10,10 +10,13 @@ public class ProjectileFactory : MonoBehaviour {
     [SerializeField] private Vector2 reloadRange;
     [SerializeField] private Transform projectileStartPoint;
 
+    private EnemyController _enemyController;
 
     private WeightedList<Projectile> _list = new WeightedList<Projectile>();
 
     private void Start() {
+        _enemyController = GameObject.FindWithTag("GameController").GetComponent<EnemyController>();
+        
         for (int i = 0; i < pool.Length; i++) {
             _list.AddEntry(pool[i], weights[i]);
         }
@@ -27,7 +30,7 @@ public class ProjectileFactory : MonoBehaviour {
 
             var prefab = _list.GetRandom();
 
-            var projectile = Instantiate(prefab, projectileStartPoint);
+            var projectile = Instantiate(prefab, _enemyController.CurProjectileStartPoint);
             projectile.Speed *= -1;
             projectile.IsEnemy = true;
             projectile.StartMove();
