@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
-{
+public class EnemyController : MonoBehaviour {
     [SerializeField] private Transform[] projectileStartPoints;
     [SerializeField] private Transform[] heroPoints;
     [SerializeField] private Transform enemyPrefab;
     [SerializeField] private Vector2 moveDelayRange;
-    
+
     private int _curIndex = 1;
     private Transform _curProjectileStartPoint;
     private Transform _curHeroPoint;
 
     public Transform CurProjectileStartPoint => _curProjectileStartPoint;
+
     private void Awake() {
         UpdateState();
 
@@ -21,14 +21,28 @@ public class EnemyController : MonoBehaviour
     }
 
     private void OnLeftButtonClick() {
-        _curIndex--;
-        if (_curIndex < 0) _curIndex = 2;
+        int i;
+        for (i = 0; i < 3; i++) {
+            _curIndex--;
+            if (_curIndex < 0) _curIndex = 2;
+            if (projectileStartPoints[_curIndex] != null) break;
+        }
+
+        if (i == 3) WinGame();
+
         UpdateState();
     }
-    
+
     private void OnRightButtonClick() {
-        _curIndex++;
-        if (_curIndex > 2) _curIndex = 0;
+        int i;
+        for (i = 0; i < 3; i++) {
+            _curIndex++;
+            if (_curIndex > 2) _curIndex = 0;
+            if (projectileStartPoints[_curIndex] != null) break;
+        }
+        
+        if (i == 3) WinGame();
+        
         UpdateState();
     }
 
@@ -49,5 +63,9 @@ public class EnemyController : MonoBehaviour
                 OnRightButtonClick();
             }
         }
+    }
+
+    private void WinGame() {
+        Debug.Log("WIN");
     }
 }

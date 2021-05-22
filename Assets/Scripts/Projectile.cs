@@ -16,6 +16,11 @@ public class Projectile : MonoBehaviour {
         get => _speed;
         set => _speed = value;
     }
+    
+    public float Damage {
+        get => _damage;
+        set => _damage = value;
+    }
 
 
     public void StartMove() {
@@ -43,6 +48,22 @@ public class Projectile : MonoBehaviour {
         if (projectile.Element == _element) {
             Destroy(projectile.gameObject);
             Destroy(gameObject);
+            return;
         }
+
+        if (IsDominantElement(this, projectile)) {
+            Destroy(projectile.gameObject);
+            Damage *= 2;
+        } else {
+            projectile.Damage *= 2;
+            Destroy(gameObject);
+        }
+    }
+
+    private bool IsDominantElement(Projectile a, Projectile b) {
+        if (a.Element == ElementType.Water && b.Element == ElementType.Fire) return true;
+        if (a.Element == ElementType.Fire && b.Element == ElementType.Earth) return true;
+        if (a.Element == ElementType.Earth && b.Element == ElementType.Water) return true;
+        return false;
     }
 }
