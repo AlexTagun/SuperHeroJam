@@ -61,8 +61,9 @@ public class HandController : MonoBehaviour {
     }
 
     public void MergeCards(UICard card1, UICard card2) {
-        if (card1.Rank != 1 && card2.Rank != 1) return;
+        if (card1.Rank != card2.Rank) return;
         if (card1.Element != card2.Element) return;
+        if (card1.Rank == 2) return;
 
         var newCard = Instantiate(_deckRank2.First(card => card.Element == card1.Element), _handContainer);
         _hand.Remove(card1);
