@@ -26,7 +26,16 @@ public class Projectile : MonoBehaviour {
 
 
     public void StartMove() {
+        if (_form == FormType.Wall) {
+            return;
+        }
         _rb.velocity = new Vector2(0, _speed);
+    }
+
+    private void Update() {
+        if (_form == FormType.Wall) {
+            _rb.velocity += new Vector2(0, _speed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
