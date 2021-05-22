@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     [SerializeField] private ElementType _element;
+    [SerializeField] private FormType _form;
     [SerializeField] private float _speed;
     [SerializeField] private float _damage;
     [SerializeField] private Rigidbody2D _rb;
 
     public bool IsEnemy;
     public ElementType Element => _element;
+    public FormType Form => _form;
 
     public float Speed {
         get => _speed;

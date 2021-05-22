@@ -29,10 +29,20 @@ public class ProjectileFactory : MonoBehaviour {
 
             var prefab = _list.GetRandom();
 
-            var projectile = Instantiate(prefab, _enemyController.CurProjectileStartPoint);
-            projectile.Speed *= -1;
-            projectile.IsEnemy = true;
-            projectile.StartMove();
+            Projectile projectile;
+            if (prefab.Form == FormType.Wall) {
+                for (int i = 0; i < _enemyController.projectileStartPoints.Length; i++) {
+                    projectile = Instantiate(prefab, _enemyController.projectileStartPoints[i]);
+                    projectile.Speed *= -1;
+                    projectile.IsEnemy = true;
+                    projectile.StartMove();
+                }
+            } else {
+                projectile = Instantiate(prefab, _enemyController.CurProjectileStartPoint);
+                projectile.Speed *= -1;
+                projectile.IsEnemy = true;
+                projectile.StartMove();
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
-    [SerializeField] private Transform[] projectileStartPoints;
+    public Transform[] projectileStartPoints;
     [SerializeField] private Transform[] heroPoints;
     [SerializeField] private Transform enemyPrefab;
     [SerializeField] private Vector2 moveDelayRange;
