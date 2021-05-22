@@ -18,9 +18,15 @@ public enum FormType {
     Lance
 }
 
+public enum CardType {
+    Base,
+    Form,
+}
+
 public class UICard : MonoBehaviour {
     [SerializeField] private ElementType _element;
     [SerializeField] private FormType _form;
+    [SerializeField] private CardType _type;
     [SerializeField] private int _rank;
     public int EnergyCost;
     public bool IsLocked;
@@ -39,6 +45,8 @@ public class UICard : MonoBehaviour {
     }
 
     public ElementType Element => _element;
+    public CardType Type => _type;
+    public FormType Form => _form;
     public int Rank => _rank;
     public Projectile ProjectilePrefab => _projectilePrefab;
 

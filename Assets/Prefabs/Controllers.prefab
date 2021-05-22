@@ -64,10 +64,15 @@ MonoBehaviour:
   - {fileID: 1805079015856515781, guid: a8c49309afbe4d3488360fd9543d8b31, type: 3}
   - {fileID: 1805079015856515781, guid: b16b5bba531e4754492a7a330955a247, type: 3}
   - {fileID: 1805079015856515781, guid: c95f1df9a7c835843a58f4dcacb735dc, type: 3}
+  - {fileID: 3071992457274627622, guid: 52dfd67c1fc55784b9744777925b4d74, type: 3}
   _deckRank2:
   - {fileID: 1805079015856515781, guid: c4e8801c4411cd44aa1bf288c79affd0, type: 3}
   - {fileID: 1805079015856515781, guid: c6472d9988245924babd560f77a753c1, type: 3}
   - {fileID: 1805079015856515781, guid: 72fd560f34075994eb3725d92469d537, type: 3}
+  _deckWalls:
+  - {fileID: 1805079015856515781, guid: 76f2f8355edb34b41906665ad6dc8fe4, type: 3}
+  - {fileID: 1805079015856515781, guid: bf3e548db1c0d6847a071abb012e82bb, type: 3}
+  - {fileID: 1805079015856515781, guid: 3bb95d4679d7e274cbb0f19922be828a, type: 3}
   _handContainer: {fileID: 0}
   _leftLine: {fileID: 0}
   _middleLine: {fileID: 0}
@@ -118,6 +123,7 @@ MonoBehaviour:
   - {fileID: 0}
   enemyPrefab: {fileID: 0}
   moveDelayRange: {x: 3, y: 8}
+  skeletonAnimation: {fileID: 0}
 --- !u!114 &7761590073428820994
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,6 +28,8 @@ public class ProjectileFactory : MonoBehaviour {
         while (true) {
             yield return new WaitForSeconds(Random.Range(reloadRange.x, reloadRange.y));
 
+            _enemyController.enemyPrefab.transform.DOShakePosition(0.3f, 1);
+            yield return new WaitForSeconds(0.3f);
             var prefab = _list.GetRandom();
 
             Projectile projectile;
