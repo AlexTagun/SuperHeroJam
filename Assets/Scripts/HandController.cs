@@ -57,8 +57,9 @@ public class HandController : MonoBehaviour {
     public void PlayCard(UICard card) {
         _hand.Remove(card);
         var projectile = Instantiate(card.ProjectilePrefab, _playerController.CurProjectileStartPoint);
-        
+
         Destroy(card.gameObject);
         FillHand();
+        projectile.StartMove();
     }
 }

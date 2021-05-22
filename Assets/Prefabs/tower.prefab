@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38f90861174ef747ae3dba9d975ea2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 20
+  _maxHP: 100
   _isEnemy: 0
 --- !u!61 &4303124876111131841
 BoxCollider2D:
