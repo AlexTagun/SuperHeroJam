@@ -36,6 +36,12 @@ public class HandController : MonoBehaviour {
 
         StartCoroutine(DrawCoroutine());
         UpdateLinesHighlighting(null);
+
+        EventManager.OnGlueWall += LockRandomCard;
+    }
+
+    private void OnDestroy() {
+        EventManager.OnGlueWall -= LockRandomCard;
     }
 
     private IEnumerator DrawCoroutine() {
@@ -117,5 +123,17 @@ public class HandController : MonoBehaviour {
         Destroy(card.gameObject);
         // FillHand();
         projectile.StartMove();
+    }
+
+    private void LockRandomCard() {
+        float r = Random.value * _hand.Count;
+
+        for (int i = 0; i < _hand.Count; i++) {
+            if(_hand[i].IsLocked) continue;
+            if (i >= r) {
+                _hand[i].Lock();
+                return;
+            }
+        }
     }
 }

@@ -23,6 +23,9 @@ public class UICard : MonoBehaviour {
     [SerializeField] private FormType _form;
     [SerializeField] private int _rank;
     public int EnergyCost;
+    public bool IsLocked;
+    [SerializeField] private float lockTime;
+    [SerializeField] private GameObject lockContainer;
     [SerializeField] private Projectile _projectilePrefab;
     [SerializeField] private TextMeshProUGUI _energyText;
     [SerializeField] private GameObject[] _stars;
@@ -38,4 +41,18 @@ public class UICard : MonoBehaviour {
     public ElementType Element => _element;
     public int Rank => _rank;
     public Projectile ProjectilePrefab => _projectilePrefab;
+
+    public void Lock() {
+        StartCoroutine(LockCoroutine());
+    }
+
+    private IEnumerator LockCoroutine() {
+        IsLocked = true;
+        lockContainer.SetActive(true);
+
+        yield return new WaitForSeconds(lockTime);
+        
+        lockContainer.SetActive(false);
+        IsLocked = false;
+    }
 }

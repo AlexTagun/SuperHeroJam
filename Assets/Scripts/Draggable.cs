@@ -21,6 +21,8 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
+        if(card.IsLocked) return;
+        
         placeHolder = gameObject;
         // placeHolder.transform.SetParent(this.transform.parent);
         // LayoutElement le = placeHolder.AddComponent<LayoutElement>();
@@ -39,6 +41,8 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     }
 
     public void OnDrag(PointerEventData eventData) {
+        if(card.IsLocked) return;
+        
         icon.transform.position = eventData.position;
 
         if (placeHolder.transform.parent != placeHolderParent) {

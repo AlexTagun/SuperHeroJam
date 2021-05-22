@@ -40,6 +40,7 @@ public class Projectile : MonoBehaviour {
 
     private void HandleTower(Tower tower) {
         if (tower.IsEnemy == IsEnemy) return;
+        if (gameObject.name.StartsWith("Water_p_1_wall_glue")) EventManager.HandleOnGlueWall();
         tower.GetDamage(_damage);
         Destroy(gameObject);
     }
