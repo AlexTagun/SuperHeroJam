@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EnergyController : MonoBehaviour {
     [SerializeField] private int _maxEnergy;
+    [SerializeField] private int _startEnergy;
     [SerializeField] private TextMeshProUGUI energyText;
     [SerializeField] private float gainTime;
     [SerializeField] private int gainNum;
@@ -14,7 +15,7 @@ public class EnergyController : MonoBehaviour {
     public int CurEnergy => _curEnergy;
 
     private void Start() {
-        _curEnergy = _maxEnergy;
+        _curEnergy = _startEnergy;
 
         UpdateText();
 

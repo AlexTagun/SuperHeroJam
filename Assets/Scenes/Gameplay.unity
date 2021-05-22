@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxEnergy: 10
+  _startEnergy: 4
   energyText: {fileID: 4041434110373866249}
   gainTime: 3
   gainNum: 1
