@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class HandController : MonoBehaviour {
     [SerializeField] private UICard[] _deckRank1;
     [SerializeField] private UICard[] _deckRank2;
+    [SerializeField] private UICard[] _deckWalls;
     [SerializeField] private RectTransform _handContainer;
     [SerializeField] private RectTransform _leftLine;
     [SerializeField] private RectTransform _middleLine;
@@ -61,10 +62,18 @@ public class HandController : MonoBehaviour {
     }
 
     public void MergeCards(UICard card1, UICard card2) {
+        if (card1.Type == CardType.Base && card2.Type == CardType.Base) HandleMergeBase(card1, card2);
+        if (card1.Type == CardType.Base && card2.Type == CardType.Form
+            || card1.Type == CardType.Form && card2.Type == CardType.Base) HandleMergeForm(card1, card2);
+
+        // FillHand();
+    }
+
+    private void HandleMergeBase(UICard card1, UICard card2) {
         if (card1.Rank != card2.Rank) return;
         if (card1.Element != card2.Element) return;
+        if (card1.Form != card2.Form) return;
         if (card1.Rank == 2) return;
-
         var newCard = Instantiate(_deckRank2.First(card => card.Element == card1.Element), _handContainer);
         _hand.Remove(card1);
         _hand.Remove(card2);
@@ -72,7 +81,29 @@ public class HandController : MonoBehaviour {
         Destroy(card2.gameObject);
 
         _hand.Add(newCard);
-        // FillHand();
+    }
+
+    private void HandleMergeForm(UICard card1, UICard card2) {
+        var baseCard = card1.Type == CardType.Base ? card1 : card2;
+        var formCard = card1.Type == CardType.Form ? card1 : card2;
+        if(baseCard.Form != FormType.Base) return;
+
+        UICard[] pool = new UICard[0];
+        switch (formCard.Form) {
+            case FormType.Wall:
+                pool = _deckWalls;
+                break;
+        }
+
+        var newCard = Instantiate(pool.First(card => card.Element == baseCard.Element && card.Rank == baseCard.Rank),
+            _handContainer);
+
+        _hand.Remove(card1);
+        _hand.Remove(card2);
+        Destroy(card1.gameObject);
+        Destroy(card2.gameObject);
+
+        _hand.Add(newCard);
     }
 
     public UICard IsOnUICard(RectTransform rectTransform, UICard draggableCard) {
@@ -118,19 +149,28 @@ public class HandController : MonoBehaviour {
 
     public void PlayCard(UICard card, int lineIndex) {
         _hand.Remove(card);
-        var projectile = Instantiate(card.ProjectilePrefab, _playerController.projectileStartPoints[lineIndex]);
-        _playerController.UpdateState(lineIndex);
-        _energyController.SpendEnergy(card.EnergyCost);
+
+        Projectile projectile;
+        if (card.ProjectilePrefab.Form == FormType.Wall) {
+            for (int i = 0; i < _playerController.projectileStartPoints.Length; i++) {
+                projectile = Instantiate(card.ProjectilePrefab, _playerController.projectileStartPoints[i]);
+                projectile.StartMove();
+            }
+        } else {
+            projectile = Instantiate(card.ProjectilePrefab, _playerController.projectileStartPoints[lineIndex]);
+            _playerController.UpdateState(lineIndex);
+            _energyController.SpendEnergy(card.EnergyCost);
+            projectile.StartMove();
+        }
+
         Destroy(card.gameObject);
-        // FillHand();
-        projectile.StartMove();
     }
 
     private void LockRandomCard() {
         float r = Random.value * _hand.Count;
 
         for (int i = 0; i < _hand.Count; i++) {
-            if(_hand[i].IsLocked) continue;
+            if (_hand[i].IsLocked) continue;
             if (i >= r) {
                 _hand[i].Lock();
                 return;
