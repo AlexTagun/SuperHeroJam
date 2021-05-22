@@ -20,12 +20,22 @@ public class HandController : MonoBehaviour {
     private PlayerController _playerController;
     private EnergyController _energyController;
 
+
+    private GameObject _leftLineContainer;
+    private GameObject _middleLineContainer;
+    private GameObject _rightLineContainer;
+
     private void Awake() {
         _playerController = GameObject.FindWithTag("GameController").GetComponent<PlayerController>();
         _energyController = GameObject.FindWithTag("GameController").GetComponent<EnergyController>();
         DrawCard(_startCardCount);
 
+        _leftLineContainer = _leftLine.GetChild(0).gameObject;
+        _middleLineContainer = _middleLine.GetChild(0).gameObject;
+        _rightLineContainer = _rightLine.GetChild(0).gameObject;
+
         StartCoroutine(DrawCoroutine());
+        UpdateLinesHighlighting(null);
     }
 
     private IEnumerator DrawCoroutine() {
@@ -79,6 +89,24 @@ public class HandController : MonoBehaviour {
         pos = _rightLine.InverseTransformPoint(rectTransform.position);
         if (_rightLine.rect.Contains(pos)) return 2;
         return -1;
+    }
+
+    public void UpdateLinesHighlighting(RectTransform rectTransform) {
+        _leftLineContainer.SetActive(false);
+        _middleLineContainer.SetActive(false);
+        _rightLineContainer.SetActive(false);
+
+        if (rectTransform == null) return;
+
+        var pos = _leftLine.InverseTransformPoint(rectTransform.position);
+        if (_leftLine.rect.Contains(pos)) _leftLineContainer.SetActive(true);
+
+        pos = _middleLine.InverseTransformPoint(rectTransform.position);
+        if (_middleLine.rect.Contains(pos)) _middleLineContainer.SetActive(true);
+
+        pos = _rightLine.InverseTransformPoint(rectTransform.position);
+        if (_rightLine.rect.Contains(pos)) _rightLineContainer.SetActive(true);
+        ;
     }
 
     public void PlayCard(UICard card, int lineIndex) {

@@ -44,9 +44,12 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         if (placeHolder.transform.parent != placeHolderParent) {
             placeHolder.transform.SetParent(placeHolderParent);
         }
+        
+        _handController.UpdateLinesHighlighting(icon.transform as RectTransform);
     }
 
     public void OnEndDrag(PointerEventData eventData) {
+        _handController.UpdateLinesHighlighting(null);
         var isOnUICard = _handController.IsOnUICard(icon.transform as RectTransform, card);
         var canPlayCard = _handController.CanPlayCard(icon.transform as RectTransform);
         if (canPlayCard == -1 && isOnUICard != null) {
