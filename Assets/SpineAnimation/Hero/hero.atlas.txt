@@ -1,117 +1,124 @@
 
 hero.png
-size: 628,628
+size: 640,640
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 body
   rotate: false
-  xy: 2, 167
+  xy: 2, 180
   size: 225, 301
   orig: 225, 301
   offset: 0, 0
   index: -1
 coat
   rotate: false
-  xy: 2, 470
+  xy: 2, 483
   size: 596, 155
   orig: 596, 155
   offset: 0, 0
   index: -1
+flame
+  rotate: false
+  xy: 600, 490
+  size: 38, 67
+  orig: 40, 69
+  offset: 1, 1
+  index: -1
 head
   rotate: false
-  xy: 214, 25
+  xy: 215, 38
   size: 135, 140
   orig: 135, 140
   offset: 0, 0
   index: -1
 l_hand
-  rotate: false
-  xy: 362, 211
+  rotate: true
+  xy: 2, 7
   size: 51, 71
   orig: 51, 71
   offset: 0, 0
   index: -1
 l_lowerArm_fight
-  rotate: true
-  xy: 432, 8
+  rotate: false
+  xy: 566, 395
   size: 64, 86
   orig: 64, 86
   offset: 0, 0
   index: -1
 l_lowerLeg
   rotate: false
-  xy: 351, 42
+  xy: 571, 146
   size: 62, 123
   orig: 62, 123
   offset: 0, 0
   index: -1
 l_palm
   rotate: false
-  xy: 520, 49
+  xy: 438, 6
   size: 84, 84
   orig: 84, 84
   offset: 0, 0
   index: -1
 l_upperArm
-  rotate: false
-  xy: 229, 257
+  rotate: true
+  xy: 2, 60
   size: 118, 211
   orig: 118, 211
   offset: 0, 0
   index: -1
 l_upperArm_fight
-  rotate: false
-  xy: 415, 74
+  rotate: true
+  xy: 438, 92
   size: 87, 122
   orig: 87, 122
   offset: 0, 0
   index: -1
 l_upperLeg
   rotate: true
-  xy: 229, 167
+  xy: 438, 181
   size: 88, 131
   orig: 92, 131
   offset: 4, 0
   index: -1
 r_hand
-  rotate: true
-  xy: 351, 2
+  rotate: false
+  xy: 600, 559
   size: 38, 79
   orig: 38, 79
   offset: 0, 0
   index: -1
 r_lowerArm
-  rotate: true
-  xy: 504, 135
+  rotate: false
+  xy: 562, 28
   size: 61, 116
   orig: 61, 116
   offset: 0, 0
   index: -1
 r_lowerLeg
-  rotate: true
-  xy: 415, 198
+  rotate: false
+  xy: 352, 14
   size: 84, 208
   orig: 84, 208
   offset: 0, 0
   index: -1
 r_upperArm
-  rotate: false
-  xy: 2, 3
+  rotate: true
+  xy: 415, 271
   size: 94, 162
   orig: 94, 162
   offset: 0, 0
   index: -1
 r_upperLeg
-  rotate: false
-  xy: 98, 16
+  rotate: true
+  xy: 415, 367
   size: 114, 149
   orig: 114, 149
   offset: 0, 0
   index: -1
 rocket
-  rotate: false
-  xy: 351, 284
+  rotate: true
+  xy: 229, 224
   size: 257, 184
   orig: 257, 184
   offset: 0, 0
