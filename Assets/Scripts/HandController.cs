@@ -16,6 +16,7 @@ public class HandController : MonoBehaviour {
     [SerializeField] private float _drawCardTime;
     [SerializeField] private int _maxCardsInHand;
     [SerializeField] private int _startCardCount;
+    [SerializeField] private float _lockLineTime;
 
     private List<UICard> _hand = new List<UICard>();
     private PlayerController _playerController;
@@ -26,6 +27,10 @@ public class HandController : MonoBehaviour {
     private GameObject _leftLineContainer;
     private GameObject _middleLineContainer;
     private GameObject _rightLineContainer;
+    
+    private GameObject _leftLineLockContainer;
+    private GameObject _middleLineLockContainer;
+    private GameObject _rightLineLockContainer;
 
     private void Awake() {
         _playerController = GameObject.FindWithTag("GameController").GetComponent<PlayerController>();
@@ -35,16 +40,26 @@ public class HandController : MonoBehaviour {
         _leftLineContainer = _leftLine.GetChild(0).gameObject;
         _middleLineContainer = _middleLine.GetChild(0).gameObject;
         _rightLineContainer = _rightLine.GetChild(0).gameObject;
+        
+        _leftLineLockContainer = _leftLine.GetChild(1).gameObject;
+        _middleLineLockContainer = _middleLine.GetChild(1).gameObject;
+        _rightLineLockContainer = _rightLine.GetChild(1).gameObject;
 
+        _leftLineLockContainer.SetActive(false);
+        _middleLineLockContainer.SetActive(false);
+        _rightLineLockContainer.SetActive(false);
+        
         StartCoroutine(DrawCoroutine());
         UpdateLinesHighlighting(null);
 
         EventManager.OnGlueWall += LockRandomCard;
         EventManager.OnGlueBall += GlueNextCard;
+        EventManager.OnGlueLance += LockLine;
     }
 
     private void OnDestroy() {
         EventManager.OnGlueWall -= LockRandomCard;
+        EventManager.OnGlueBall -= GlueNextCard;
     }
 
     private IEnumerator DrawCoroutine() {
@@ -155,18 +170,22 @@ public class HandController : MonoBehaviour {
 
     public void PlayCard(UICard card, int lineIndex) {
         if(card.Type != CardType.Base) return;
+        if(lineIndex == 0 && _leftLineLockContainer.activeSelf
+            || lineIndex == 1 && _middleLineLockContainer.activeSelf
+            || lineIndex == 2 && _rightLineLockContainer.activeSelf) return;
+        
         _hand.Remove(card);
 
         Projectile projectile;
         if (card.ProjectilePrefab.Form == FormType.Wall) {
             for (int i = 0; i < _playerController.projectileStartPoints.Length; i++) {
                 projectile = Instantiate(card.ProjectilePrefab, _playerController.projectileStartPoints[i]);
-                projectile.StartMove();
+                projectile.StartMove(lineIndex);
             }
         } else {
             projectile = Instantiate(card.ProjectilePrefab, _playerController.projectileStartPoints[lineIndex]);
             _playerController.UpdateState(lineIndex);
-            projectile.StartMove();
+            projectile.StartMove(lineIndex);
         }
 
         _energyController.SpendEnergy(card.EnergyCost);
@@ -187,5 +206,40 @@ public class HandController : MonoBehaviour {
 
     private void GlueNextCard() {
         _isGlueNextCard = true;
+    }
+
+    private void LockLine(int index) {
+        // Debug.Log("lock");
+        // Debug.Log(projectilePos);
+        // var pos_l = _leftLine.InverseTransformPoint(projectilePos);
+        // var pos_m = _middleLine.InverseTransformPoint(projectilePos);
+        // var pos_r = _rightLine.InverseTransformPoint(projectilePos);
+        //
+        // var min = Mathf.Min(pos_l.x, Mathf.Min(pos_m.x, pos_r.x));
+        //
+        // if (Math.Abs(pos_l.x - min) < 1) StartCoroutine(LockLineCoroutine(_leftLineLockContainer));
+        //
+        // if (Math.Abs(pos_m.x - min) < 1) StartCoroutine(LockLineCoroutine(_middleLineLockContainer));
+        //
+        // if (Math.Abs(pos_r.x - min) < 1) StartCoroutine(LockLineCoroutine(_rightLineLockContainer));
+
+        switch (index) {
+            case 0:
+                StartCoroutine(LockLineCoroutine(_leftLineLockContainer));
+                break;
+            case 1:
+                StartCoroutine(LockLineCoroutine(_middleLineLockContainer));
+                break;
+            case 2:
+                StartCoroutine(LockLineCoroutine(_rightLineLockContainer));
+                break;
+        }
+    }
+
+    private IEnumerator LockLineCoroutine(GameObject line) {
+        Debug.Log("cor");
+        line.SetActive(true);
+        yield return new WaitForSeconds(_lockLineTime);
+        line.SetActive(false);
     }
 }

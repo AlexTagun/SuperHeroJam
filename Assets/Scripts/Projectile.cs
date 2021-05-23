@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour {
     public bool IsEnemy;
     public ElementType Element => _element;
     public FormType Form => _form;
+    public int LineIndex;
 
     public float Speed {
         get => _speed;
@@ -25,7 +26,8 @@ public class Projectile : MonoBehaviour {
     }
 
 
-    public void StartMove() {
+    public void StartMove(int lineIndex) {
+        LineIndex = lineIndex;
         if (_form == FormType.Wall) {
             return;
         }
@@ -39,7 +41,6 @@ public class Projectile : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("Collision");
         var tower = other.GetComponent<Tower>();
         if (tower != null) HandleTower(tower);
 
@@ -51,6 +52,7 @@ public class Projectile : MonoBehaviour {
         if (tower.IsEnemy == IsEnemy) return;
         if (gameObject.name.StartsWith("Water_p_1_wall_glue")) EventManager.HandleOnGlueWall();
         if (gameObject.name.StartsWith("Fire_p_1_ball_glue")) EventManager.HandleOnGlueBall();
+        if (gameObject.name.StartsWith("Earth_p_1_lance_glue")) EventManager.HandleOnGlueLance(LineIndex);
         tower.GetDamage(_damage);
         Destroy(gameObject);
     }

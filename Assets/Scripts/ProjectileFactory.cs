@@ -38,13 +38,13 @@ public class ProjectileFactory : MonoBehaviour {
                     projectile = Instantiate(prefab, _enemyController.projectileStartPoints[i]);
                     projectile.Speed *= -1;
                     projectile.IsEnemy = true;
-                    projectile.StartMove();
+                    projectile.StartMove(i);
                 }
             } else {
                 projectile = Instantiate(prefab, _enemyController.CurProjectileStartPoint);
                 projectile.Speed *= -1;
                 projectile.IsEnemy = true;
-                projectile.StartMove();
+                projectile.StartMove(_enemyController.CurIndex);
             }
         }
     }

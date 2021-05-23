@@ -80,6 +80,7 @@ MonoBehaviour:
   _drawCardTime: 3
   _maxCardsInHand: 8
   _startCardCount: 5
+  _lockLineTime: 3
 --- !u!114 &7761590073428821052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,5 +141,6 @@ MonoBehaviour:
   _startEnergy: 4
   energyText: {fileID: 0}
   energyBar: {fileID: 0}
+  glueBar: {fileID: 0}
   gainTime: 3
   gainNum: 1

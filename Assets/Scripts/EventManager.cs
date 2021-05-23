@@ -17,4 +17,10 @@ public static class EventManager {
     public static void HandleOnGlueBall() {
         OnGlueBall?.Invoke();
     }
+    
+    public static Action<int> OnGlueLance;
+    
+    public static void HandleOnGlueLance(int index) {
+        OnGlueLance?.Invoke(index);
+    }
 }
