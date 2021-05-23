@@ -157,6 +157,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire_p_1_ball
       objectReference: {fileID: 0}
+    - target: {fileID: 2697969855319117431, guid: 1a49949552403be469ebf9ad2edf7fc0,
+        type: 3}
+      propertyPath: _damage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3318107905582241116, guid: 1a49949552403be469ebf9ad2edf7fc0,
         type: 3}
       propertyPath: m_IsActive

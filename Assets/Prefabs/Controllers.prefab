@@ -106,14 +106,14 @@ MonoBehaviour:
   - {fileID: 1805079015856515781, guid: 6c5799e6f45a2ec4289e3adf6cc7ffb6, type: 3}
   - {fileID: 1805079015856515781, guid: e90bfcdd0e15f2c46bcb25873dca352d, type: 3}
   - {fileID: 1805079015856515781, guid: 087d31f919043f64ca2461c6c17c4e92, type: 3}
-  _deckWeights: 0a0000000a0000000a000000050000000500000005000000
+  _deckWeights: 640000006400000064000000140000001400000014000000
   _handContainer: {fileID: 0}
   _leftLine: {fileID: 0}
   _middleLine: {fileID: 0}
   _rightLine: {fileID: 0}
   _drawCardTime: 3
   _maxCardsInHand: 8
-  _startCardCount: 5
+  _startCardCount: 3
   _lockLineTime: 3
 --- !u!114 &7761590073428821052
 MonoBehaviour:
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxEnergy: 10
-  _startEnergy: 4
+  _startEnergy: 2
   energyText: {fileID: 0}
   energyBar: {fileID: 0}
   glueBar: {fileID: 0}
