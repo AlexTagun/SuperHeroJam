@@ -47,9 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _element: 0
-  _speed: 2
+  _form: 0
+  _speed: 1
   _damage: 10
   _rb: {fileID: 5113167663084928975}
+  IsEnemy: 0
+  LineIndex: 0
 --- !u!50 &5113167663084928975
 Rigidbody2D:
   serializedVersion: 4

@@ -120,32 +120,32 @@ PrefabInstance:
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.074509785
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0.6095369
+      value: 0.5372549
       objectReference: {fileID: 0}
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.81960785
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 0.11792451
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 0.9435472
+      value: 0.09019608
       objectReference: {fileID: 0}
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
@@ -155,12 +155,12 @@ PrefabInstance:
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key2.g
-      value: 1
+      value: 0.86666673
       objectReference: {fileID: 0}
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key2.r
-      value: 1
+      value: 0.79215693
       objectReference: {fileID: 0}
     - target: {fileID: 8200643795128368115, guid: b996bfceb6d4b1841b1f5bf8a8cc4b64,
         type: 3}
