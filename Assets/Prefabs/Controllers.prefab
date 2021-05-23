@@ -106,6 +106,7 @@ MonoBehaviour:
   - {fileID: 1805079015856515781, guid: 6c5799e6f45a2ec4289e3adf6cc7ffb6, type: 3}
   - {fileID: 1805079015856515781, guid: e90bfcdd0e15f2c46bcb25873dca352d, type: 3}
   - {fileID: 1805079015856515781, guid: 087d31f919043f64ca2461c6c17c4e92, type: 3}
+  _deckWeights: 0a0000000a0000000a000000050000000500000005000000
   _handContainer: {fileID: 0}
   _leftLine: {fileID: 0}
   _middleLine: {fileID: 0}
