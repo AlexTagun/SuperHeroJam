@@ -22,7 +22,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public void OnBeginDrag(PointerEventData eventData) {
         if(card.IsLocked) return;
-        
+        _handController.ShowHint(card);
         placeHolder = gameObject;
         // placeHolder.transform.SetParent(this.transform.parent);
         // LayoutElement le = placeHolder.AddComponent<LayoutElement>();
@@ -53,6 +53,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     }
 
     public void OnEndDrag(PointerEventData eventData) {
+        _handController.StopHint();
         _handController.UpdateLinesHighlighting(null);
         var isOnUICard = _handController.IsOnUICard(icon.transform as RectTransform, card);
         var canPlayCard = _handController.CanPlayCard(icon.transform as RectTransform);

@@ -69,6 +69,6 @@ public class UICard : MonoBehaviour {
     }
 
     public void MergeHintAnimation() {
-        transform.DOShakeRotation(0.5f, 30);
+        transform.DOShakeRotation(0.5f, 15).SetLoops(-1);
     }
 }
