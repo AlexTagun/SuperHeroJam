@@ -96,8 +96,19 @@ public class HandController : MonoBehaviour {
         if (card1.Element != card2.Element) return;
         if (card1.Form != card2.Form) return;
         if (card1.Rank == 3) return;
-        var pool = card1.Rank == 2 ? _deckRank3 : _deckRank2;
-        var newCard = Instantiate(pool.First(card => card.Element == card1.Element), _handContainer);
+
+        UICard prefab = null;
+        switch (card1.Form) {
+            case FormType.Base:
+                var pool = card1.Rank == 2 ? _deckRank3 : _deckRank2;
+                prefab = pool.First(card => card.Element == card1.Element);
+                break;
+            case FormType.Wall:
+                prefab = _deckWalls.First(card => card.Element == card1.Element && card.Rank == card1.Rank + 1);
+                break;
+        }
+        
+        var newCard = Instantiate(prefab, _handContainer);
         _hand.Remove(card1);
         _hand.Remove(card2);
         Destroy(card1.gameObject);
