@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     private int _curIndex = 1;
     private Transform _curHeroPoint;
 
-    private void Awake() {
+    private void Start() {
         UpdateState(1);
         
     }

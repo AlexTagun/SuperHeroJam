@@ -23,4 +23,10 @@ public static class EventManager {
     public static void HandleOnGlueLance(int index) {
         OnGlueLance?.Invoke(index);
     }
+    
+    public static Action<bool> OnEndGame;
+    
+    public static void HandleOnEndGame(bool value) {
+        OnEndGame?.Invoke(value);
+    }
 }
