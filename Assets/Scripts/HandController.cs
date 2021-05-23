@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class HandController : MonoBehaviour {
@@ -39,6 +40,13 @@ public class HandController : MonoBehaviour {
         _playerController = GameObject.FindWithTag("GameController").GetComponent<PlayerController>();
         _energyController = GameObject.FindWithTag("GameController").GetComponent<EnergyController>();
         DrawCard(_startCardCount);
+
+        for (int i = _startCardCount; i < _maxCardsInHand; i++) {
+            var placeholder = new GameObject();
+            placeholder.transform.SetParent(_handContainer);
+            placeholder.name = "placeholder";
+            placeholder.AddComponent<LayoutElement>();
+        }
 
         _leftLineContainer = _leftLine.GetChild(0).gameObject;
         _middleLineContainer = _middleLine.GetChild(0).gameObject;
@@ -81,6 +89,7 @@ public class HandController : MonoBehaviour {
         for (int i = 0; i < count; i++) {
             if (_hand.Count == _maxCardsInHand) break;
             var newCard = Instantiate(_deckRank1[Random.Range(0, _deckRank1.Length)], _handContainer);
+            newCard.transform.SetSiblingIndex(CalculateSiblingIndex());
             _hand.Add(newCard);
         }
     }
@@ -117,8 +126,16 @@ public class HandController : MonoBehaviour {
         }
         
         var newCard = Instantiate(prefab, _handContainer);
+        newCard.transform.SetSiblingIndex(card2.transform.GetSiblingIndex());
         _hand.Remove(card1);
         _hand.Remove(card2);
+        
+        var placeholder = new GameObject();
+        placeholder.transform.SetParent(_handContainer);
+        placeholder.name = "placeholder";
+        placeholder.transform.SetSiblingIndex(card1.transform.GetSiblingIndex());
+        placeholder.AddComponent<LayoutElement>();
+        
         Destroy(card1.gameObject);
         Destroy(card2.gameObject);
 
@@ -146,8 +163,16 @@ public class HandController : MonoBehaviour {
         var newCard = Instantiate(pool.First(card => card.Element == baseCard.Element && card.Rank == baseCard.Rank),
             _handContainer);
 
+        newCard.transform.SetSiblingIndex(card2.transform.GetSiblingIndex());
         _hand.Remove(card1);
         _hand.Remove(card2);
+        
+        var placeholder = new GameObject();
+        placeholder.transform.SetParent(_handContainer);
+        placeholder.name = "placeholder";
+        placeholder.transform.SetSiblingIndex(card1.transform.GetSiblingIndex());
+        placeholder.AddComponent<LayoutElement>();
+        
         Destroy(card1.gameObject);
         Destroy(card2.gameObject);
 
@@ -268,5 +293,18 @@ public class HandController : MonoBehaviour {
         line.SetActive(true);
         yield return new WaitForSeconds(_lockLineTime);
         line.SetActive(false);
+    }
+
+    private int CalculateSiblingIndex() {
+        int count = _handContainer.transform.childCount;
+        for (int i = 0; i < count; i++) {
+            var child = _handContainer.transform.GetChild(i).gameObject;
+            if (child.name == "placeholder") {
+                Destroy(child);
+                return i;
+            }
+        }
+
+        return _handContainer.transform.childCount;
     }
 }
