@@ -127,6 +127,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7545115805340982637}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &224454845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8671793825312248729, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7545115805340982637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &811938402 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4041434109562460522, guid: 61bd93f127b5f044499a8eaad045d565,
@@ -964,6 +976,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5196982303220727939, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6646097702703901620, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
         type: 3}
       propertyPath: m_Mesh
@@ -1083,6 +1100,11 @@ PrefabInstance:
       propertyPath: heroPrefab
       value: 
       objectReference: {fileID: 1349229501}
+    - target: {fileID: 7761590073428821052, guid: 6c4def3eed1fd89458dcb6b858416e18,
+        type: 3}
+      propertyPath: skeletonAnimation
+      value: 
+      objectReference: {fileID: 224454845}
     - target: {fileID: 7761590073428821052, guid: 6c4def3eed1fd89458dcb6b858416e18,
         type: 3}
       propertyPath: heroPoints.Array.data[0]
