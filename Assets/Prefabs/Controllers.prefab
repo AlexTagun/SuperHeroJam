@@ -69,10 +69,20 @@ MonoBehaviour:
   - {fileID: 1805079015856515781, guid: c4e8801c4411cd44aa1bf288c79affd0, type: 3}
   - {fileID: 1805079015856515781, guid: c6472d9988245924babd560f77a753c1, type: 3}
   - {fileID: 1805079015856515781, guid: 72fd560f34075994eb3725d92469d537, type: 3}
+  _deckRank3:
+  - {fileID: 1805079015856515781, guid: 2757b084e6a99e5468a3472fc648ab00, type: 3}
+  - {fileID: 1805079015856515781, guid: 056a4d54cdc177a4eaf2f64a8f7fdd01, type: 3}
+  - {fileID: 1805079015856515781, guid: 755bef797eb273648aaeb24b1a2a4ded, type: 3}
   _deckWalls:
   - {fileID: 1805079015856515781, guid: 76f2f8355edb34b41906665ad6dc8fe4, type: 3}
+  - {fileID: 1805079015856515781, guid: 5a705c34bfb264548ae49438cdd2ff29, type: 3}
+  - {fileID: 1805079015856515781, guid: df2978c51f734e044b40b214986e2211, type: 3}
   - {fileID: 1805079015856515781, guid: bf3e548db1c0d6847a071abb012e82bb, type: 3}
+  - {fileID: 1805079015856515781, guid: 606f092770dca8c47843e6e0d9144252, type: 3}
+  - {fileID: 1805079015856515781, guid: b7b270b3014348641a7e2543260b54aa, type: 3}
   - {fileID: 1805079015856515781, guid: 3bb95d4679d7e274cbb0f19922be828a, type: 3}
+  - {fileID: 1805079015856515781, guid: 2acfdf1750af69641b89df163547e2f1, type: 3}
+  - {fileID: 1805079015856515781, guid: 7ce1df820c221d24ea7ce0d0364bc4f0, type: 3}
   _handContainer: {fileID: 0}
   _leftLine: {fileID: 0}
   _middleLine: {fileID: 0}
@@ -80,6 +90,7 @@ MonoBehaviour:
   _drawCardTime: 3
   _maxCardsInHand: 8
   _startCardCount: 5
+  _lockLineTime: 3
 --- !u!114 &7761590073428821052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,5 +151,6 @@ MonoBehaviour:
   _startEnergy: 4
   energyText: {fileID: 0}
   energyBar: {fileID: 0}
+  glueBar: {fileID: 0}
   gainTime: 3
   gainNum: 1

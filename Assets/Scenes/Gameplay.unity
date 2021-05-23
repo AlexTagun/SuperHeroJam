@@ -338,6 +338,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7545115805340982637}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1459576457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6009689299163252514, guid: 61bd93f127b5f044499a8eaad045d565,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041434110373866248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1538579508 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4041434111251838780, guid: 61bd93f127b5f044499a8eaad045d565,
@@ -1026,6 +1038,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7761590073428820994, guid: 6c4def3eed1fd89458dcb6b858416e18,
+        type: 3}
+      propertyPath: glueBar
+      value: 
+      objectReference: {fileID: 1459576457}
     - target: {fileID: 7761590073428820994, guid: 6c4def3eed1fd89458dcb6b858416e18,
         type: 3}
       propertyPath: energyBar

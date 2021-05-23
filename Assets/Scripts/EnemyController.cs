@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour {
     private Transform _curHeroPoint;
 
     public Transform CurProjectileStartPoint => _curProjectileStartPoint;
+    public int CurIndex => _curIndex;
 
     private void Awake() {
         
