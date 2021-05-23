@@ -20,6 +20,7 @@ public class HandController : MonoBehaviour {
     private List<UICard> _hand = new List<UICard>();
     private PlayerController _playerController;
     private EnergyController _energyController;
+    private bool _isGlueNextCard;
 
 
     private GameObject _leftLineContainer;
@@ -39,6 +40,7 @@ public class HandController : MonoBehaviour {
         UpdateLinesHighlighting(null);
 
         EventManager.OnGlueWall += LockRandomCard;
+        EventManager.OnGlueBall += GlueNextCard;
     }
 
     private void OnDestroy() {
@@ -49,7 +51,11 @@ public class HandController : MonoBehaviour {
         while (true) {
             yield return new WaitForSeconds(_drawCardTime);
 
-            DrawCard(1);
+            if (_isGlueNextCard) {
+                _isGlueNextCard = false;
+            } else {
+                DrawCard(1);
+            }
         }
     }
 
@@ -177,5 +183,9 @@ public class HandController : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    private void GlueNextCard() {
+        _isGlueNextCard = true;
     }
 }

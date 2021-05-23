@@ -11,4 +11,10 @@ public static class EventManager {
     public static void HandleOnGlueWall() {
         OnGlueWall?.Invoke();
     }
+    
+    public static Action OnGlueBall;
+    
+    public static void HandleOnGlueBall() {
+        OnGlueBall?.Invoke();
+    }
 }
