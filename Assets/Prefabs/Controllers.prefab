@@ -69,6 +69,10 @@ MonoBehaviour:
   - {fileID: 1805079015856515781, guid: c4e8801c4411cd44aa1bf288c79affd0, type: 3}
   - {fileID: 1805079015856515781, guid: c6472d9988245924babd560f77a753c1, type: 3}
   - {fileID: 1805079015856515781, guid: 72fd560f34075994eb3725d92469d537, type: 3}
+  _deckRank3:
+  - {fileID: 1805079015856515781, guid: 2757b084e6a99e5468a3472fc648ab00, type: 3}
+  - {fileID: 1805079015856515781, guid: 056a4d54cdc177a4eaf2f64a8f7fdd01, type: 3}
+  - {fileID: 1805079015856515781, guid: 755bef797eb273648aaeb24b1a2a4ded, type: 3}
   _deckWalls:
   - {fileID: 1805079015856515781, guid: 76f2f8355edb34b41906665ad6dc8fe4, type: 3}
   - {fileID: 1805079015856515781, guid: bf3e548db1c0d6847a071abb012e82bb, type: 3}

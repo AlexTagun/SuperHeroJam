@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class HandController : MonoBehaviour {
     [SerializeField] private UICard[] _deckRank1;
     [SerializeField] private UICard[] _deckRank2;
+    [SerializeField] private UICard[] _deckRank3;
     [SerializeField] private UICard[] _deckWalls;
     [SerializeField] private RectTransform _handContainer;
     [SerializeField] private RectTransform _leftLine;
@@ -94,8 +95,9 @@ public class HandController : MonoBehaviour {
         if (card1.Rank != card2.Rank) return;
         if (card1.Element != card2.Element) return;
         if (card1.Form != card2.Form) return;
-        if (card1.Rank == 2) return;
-        var newCard = Instantiate(_deckRank2.First(card => card.Element == card1.Element), _handContainer);
+        if (card1.Rank == 3) return;
+        var pool = card1.Rank == 2 ? _deckRank3 : _deckRank2;
+        var newCard = Instantiate(pool.First(card => card.Element == card1.Element), _handContainer);
         _hand.Remove(card1);
         _hand.Remove(card2);
         Destroy(card1.gameObject);
