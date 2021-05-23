@@ -67,6 +67,8 @@ public class UICard : MonoBehaviour {
         lockContainer.SetActive(false);
         IsLocked = false;
     }
-    
-    
+
+    public void MergeHintAnimation() {
+        transform.DOShakeRotation(0.5f, 30);
+    }
 }

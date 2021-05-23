@@ -31,7 +31,7 @@ public class HandController : MonoBehaviour {
     private GameObject _leftLineContainer;
     private GameObject _middleLineContainer;
     private GameObject _rightLineContainer;
-    
+
     private GameObject _leftLineLockContainer;
     private GameObject _middleLineLockContainer;
     private GameObject _rightLineLockContainer;
@@ -51,7 +51,7 @@ public class HandController : MonoBehaviour {
         _leftLineContainer = _leftLine.GetChild(0).gameObject;
         _middleLineContainer = _middleLine.GetChild(0).gameObject;
         _rightLineContainer = _rightLine.GetChild(0).gameObject;
-        
+
         _leftLineLockContainer = _leftLine.GetChild(1).gameObject;
         _middleLineLockContainer = _middleLine.GetChild(1).gameObject;
         _rightLineLockContainer = _rightLine.GetChild(1).gameObject;
@@ -59,8 +59,9 @@ public class HandController : MonoBehaviour {
         _leftLineLockContainer.SetActive(false);
         _middleLineLockContainer.SetActive(false);
         _rightLineLockContainer.SetActive(false);
-        
+
         StartCoroutine(DrawCoroutine());
+        StartCoroutine(MergeHintCoroutine());
         UpdateLinesHighlighting(null);
 
         EventManager.OnGlueWall += LockRandomCard;
@@ -72,6 +73,40 @@ public class HandController : MonoBehaviour {
         EventManager.OnGlueWall -= LockRandomCard;
         EventManager.OnGlueBall -= GlueNextCard;
         EventManager.OnGlueLance -= LockLine;
+    }
+
+    private IEnumerator MergeHintCoroutine() {
+        while (true) {
+            yield return new WaitForSeconds(5);
+
+            UICard a = null;
+            UICard b = null;
+            for (int i = 0; i < _hand.Count - 1; i++) {
+                if (_hand[i].Form != FormType.Base) continue;
+                if (_hand[i].Type != CardType.Base) continue;
+                a = _hand[i];
+                for (int j = 0; j < _hand.Count; j++) {
+                    if (i == j) continue;
+                    if (_hand[j].Type == CardType.Form) {
+                        b = _hand[j];
+                        break;
+                    }
+
+                    if (_hand[j].Type == CardType.Base) {
+                        if (a.Element != _hand[j].Element) continue;
+                        b = _hand[j];
+                        break;
+                    }
+                }
+
+                if (b != null) break;
+            }
+
+            if (a != null && b != null) {
+                a.MergeHintAnimation();
+                b.MergeHintAnimation();
+            }
+        }
     }
 
     private IEnumerator DrawCoroutine() {
@@ -125,18 +160,18 @@ public class HandController : MonoBehaviour {
                 prefab = _deckLances.First(card => card.Element == card1.Element && card.Rank == card1.Rank + 1);
                 break;
         }
-        
+
         var newCard = Instantiate(prefab, _handContainer);
         newCard.transform.SetSiblingIndex(card2.transform.GetSiblingIndex());
         _hand.Remove(card1);
         _hand.Remove(card2);
-        
+
         var placeholder = new GameObject();
         placeholder.transform.SetParent(_handContainer);
         placeholder.name = "placeholder";
         placeholder.transform.SetSiblingIndex(card1.transform.GetSiblingIndex());
         placeholder.AddComponent<LayoutElement>();
-        
+
         Destroy(card1.gameObject);
         Destroy(card2.gameObject);
 
@@ -167,13 +202,13 @@ public class HandController : MonoBehaviour {
         newCard.transform.SetSiblingIndex(card2.transform.GetSiblingIndex());
         _hand.Remove(card1);
         _hand.Remove(card2);
-        
+
         var placeholder = new GameObject();
         placeholder.transform.SetParent(_handContainer);
         placeholder.name = "placeholder";
         placeholder.transform.SetSiblingIndex(card1.transform.GetSiblingIndex());
         placeholder.AddComponent<LayoutElement>();
-        
+
         Destroy(card1.gameObject);
         Destroy(card2.gameObject);
 
@@ -222,11 +257,11 @@ public class HandController : MonoBehaviour {
     }
 
     public void PlayCard(UICard card, int lineIndex) {
-        if(card.Type != CardType.Base) return;
-        if(lineIndex == 0 && _leftLineLockContainer.activeSelf
+        if (card.Type != CardType.Base) return;
+        if (lineIndex == 0 && _leftLineLockContainer.activeSelf
             || lineIndex == 1 && _middleLineLockContainer.activeSelf
             || lineIndex == 2 && _rightLineLockContainer.activeSelf) return;
-        
+
         _hand.Remove(card);
 
         Projectile projectile;
