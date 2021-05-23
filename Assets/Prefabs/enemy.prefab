@@ -99,8 +99,8 @@ MonoBehaviour:
   - {fileID: 1321647201813029179, guid: c358e477b2903b34698700b9f8b3835d, type: 3}
   - {fileID: 8289305224853588953, guid: aecb5039510dcbb4db2a3618829b4f7e, type: 3}
   - {fileID: 8160757178569826017, guid: bc139e004715a2740afed8e52770c65a, type: 3}
-  weights: 0a0000000a0000000a000000
-  reloadRange: {x: 4, y: 8}
+  weights: 140000002800000028000000
+  reloadRange: {x: 6, y: 8}
 --- !u!1 &9051910030189897140
 GameObject:
   m_ObjectHideFlags: 0
