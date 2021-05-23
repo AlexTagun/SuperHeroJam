@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 28616462068346027, guid: 93fa41feeac86eb449f96ea7334cf48a,
         type: 3}
       propertyPath: m_Name
-      value: blank_wall_1_body
+      value: water_wall_1_body
       objectReference: {fileID: 0}
     - target: {fileID: 6745077551241531582, guid: 93fa41feeac86eb449f96ea7334cf48a,
         type: 3}

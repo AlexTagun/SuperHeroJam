@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 7650657817918431584, guid: 36b9bb3e58b6b1544b6b38a1b33a1659,
         type: 3}
       propertyPath: m_Name
-      value: blank_wall_1_body
+      value: fire_wall_1_body
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36b9bb3e58b6b1544b6b38a1b33a1659, type: 3}
