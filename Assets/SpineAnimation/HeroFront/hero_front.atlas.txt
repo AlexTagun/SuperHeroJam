@@ -1,0 +1,139 @@
+
+hero_front.png
+size: 908,908
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: false
+  xy: 2, 288
+  size: 656, 618
+  orig: 656, 618
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 660, 632
+  size: 232, 274
+  orig: 232, 274
+  offset: 0, 0
+  index: -1
+coat
+  rotate: false
+  xy: 2, 146
+  size: 578, 140
+  orig: 578, 140
+  offset: 0, 0
+  index: -1
+flame
+  rotate: true
+  xy: 328, 2
+  size: 38, 67
+  orig: 40, 69
+  offset: 1, 1
+  index: -1
+head
+  rotate: false
+  xy: 765, 319
+  size: 119, 148
+  orig: 119, 148
+  offset: 0, 0
+  index: -1
+l_hand
+  rotate: true
+  xy: 567, 2
+  size: 59, 93
+  orig: 59, 93
+  offset: 0, 0
+  index: -1
+l_hand_attack
+  rotate: true
+  xy: 682, 187
+  size: 113, 86
+  orig: 113, 86
+  offset: 0, 0
+  index: -1
+l_leg
+  rotate: true
+  xy: 2, 38
+  size: 106, 324
+  orig: 106, 324
+  offset: 0, 0
+  index: -1
+l_lowerArm
+  rotate: false
+  xy: 498, 30
+  size: 67, 114
+  orig: 67, 114
+  offset: 0, 0
+  index: -1
+l_lowerArm_attack
+  rotate: false
+  xy: 770, 196
+  size: 70, 121
+  orig: 70, 121
+  offset: 0, 0
+  index: -1
+l_pin
+  rotate: false
+  xy: 770, 147
+  size: 48, 47
+  orig: 48, 47
+  offset: 0, 0
+  index: -1
+l_upperArm
+  rotate: false
+  xy: 582, 132
+  size: 98, 154
+  orig: 98, 154
+  offset: 0, 0
+  index: -1
+l_upperArm_attack
+  rotate: false
+  xy: 660, 302
+  size: 103, 165
+  orig: 103, 165
+  offset: 0, 0
+  index: -1
+r_hand
+  rotate: true
+  xy: 682, 137
+  size: 48, 86
+  orig: 48, 86
+  offset: 0, 0
+  index: -1
+r_lowerArm
+  rotate: true
+  xy: 567, 63
+  size: 67, 107
+  orig: 67, 107
+  offset: 0, 0
+  index: -1
+r_lowerLeg
+  rotate: true
+  xy: 328, 42
+  size: 102, 168
+  orig: 102, 168
+  offset: 0, 0
+  index: -1
+r_pin
+  rotate: true
+  xy: 842, 269
+  size: 48, 46
+  orig: 48, 46
+  offset: 0, 0
+  index: -1
+r_upperArm
+  rotate: false
+  xy: 812, 469
+  size: 82, 161
+  orig: 82, 161
+  offset: 0, 0
+  index: -1
+r_upperLeg
+  rotate: false
+  xy: 660, 469
+  size: 150, 161
+  orig: 150, 161
+  offset: 0, 0
+  index: -1

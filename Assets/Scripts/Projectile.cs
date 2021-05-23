@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Projectile : MonoBehaviour {
     [SerializeField] private ElementType _element;
@@ -30,6 +31,9 @@ public class Projectile : MonoBehaviour {
 
     public void StartMove(int lineIndex) {
         LineIndex = lineIndex;
+        if (SceneManager.GetActiveScene().name == "Gameplay_PvP" && IsEnemy) {
+            transform.eulerAngles = new Vector3(0, 0, 180);
+        }
         if (_form == FormType.Wall) {
             return;
         }
