@@ -119,6 +119,7 @@ public class HandController : MonoBehaviour {
 
                 if (_hand[j].Type == CardType.Base) {
                     if (card.Element != _hand[j].Element) continue;
+                    if (card.Rank != _hand[j].Rank) continue;
                     _hand[j].MergeHintAnimation();
                 }
             }
