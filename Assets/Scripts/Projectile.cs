@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour {
     [SerializeField] private float _speed;
     [SerializeField] private float _damage;
     [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private GameObject towerCollisionEffect;
+    [SerializeField] private GameObject projectileCollisionEffect;
 
     public bool IsEnemy;
     public ElementType Element => _element;
@@ -53,6 +55,7 @@ public class Projectile : MonoBehaviour {
         if (gameObject.name.StartsWith("Water_p_1_wall_glue")) EventManager.HandleOnGlueWall();
         if (gameObject.name.StartsWith("Fire_p_1_ball_glue")) EventManager.HandleOnGlueBall();
         if (gameObject.name.StartsWith("Earth_p_1_lance_glue")) EventManager.HandleOnGlueLance(LineIndex);
+        SpawnEffect(towerCollisionEffect);
         tower.GetDamage(_damage);
         Destroy(gameObject);
     }
@@ -60,6 +63,7 @@ public class Projectile : MonoBehaviour {
     private void HandleProjectile(Projectile projectile) {
         if (projectile.IsEnemy == IsEnemy) return;
 
+        SpawnEffect(projectileCollisionEffect);
         if (projectile.Element == _element) {
             Destroy(projectile.gameObject);
             Destroy(gameObject);
@@ -80,5 +84,10 @@ public class Projectile : MonoBehaviour {
         if (a.Element == ElementType.Fire && b.Element == ElementType.Earth) return true;
         if (a.Element == ElementType.Earth && b.Element == ElementType.Water) return true;
         return false;
+    }
+
+    private void SpawnEffect(GameObject prefab) {
+        var effect = Instantiate(prefab);
+        effect.transform.position = transform.position;
     }
 }

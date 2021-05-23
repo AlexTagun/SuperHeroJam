@@ -51,6 +51,10 @@ MonoBehaviour:
   _speed: 1
   _damage: 10
   _rb: {fileID: 5113167663084928975}
+  towerCollisionEffect: {fileID: 868445908899743536, guid: 237329b71b9ba4541ae68ea02bdf5d6d,
+    type: 3}
+  projectileCollisionEffect: {fileID: 888132009963823416, guid: de4cc37a0bf12fd428785f6c19e5b382,
+    type: 3}
   IsEnemy: 0
   LineIndex: 0
 --- !u!50 &5113167663084928975

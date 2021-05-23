@@ -9500,8 +9500,9 @@ GameObject:
   - component: {fileID: 866709705760168248}
   - component: {fileID: 1066082262832995446}
   - component: {fileID: 1067305314229959980}
+  - component: {fileID: 6046312392670939408}
   m_Layer: 0
-  m_Name: Cartoon explosion 1
+  m_Name: explosion_hp_bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14313,6 +14314,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6046312392670939408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868445908899743536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd93bbf0702b51a48abc67949172982a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endTime: 1
 --- !u!1 &868817807385227642
 GameObject:
   m_ObjectHideFlags: 0

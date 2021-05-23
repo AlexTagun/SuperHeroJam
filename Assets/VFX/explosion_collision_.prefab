@@ -4634,8 +4634,9 @@ GameObject:
   - component: {fileID: 889871421301471936}
   - component: {fileID: 1051291202702934840}
   - component: {fileID: 1049383447142496014}
+  - component: {fileID: 7398383854570754181}
   m_Layer: 0
-  m_Name: Cartoon explosion 3
+  m_Name: explosion_collision_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9446,6 +9447,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7398383854570754181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888132009963823416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd93bbf0702b51a48abc67949172982a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endTime: 0.5
 --- !u!1 &888186058509826150
 GameObject:
   m_ObjectHideFlags: 0
