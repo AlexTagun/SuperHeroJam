@@ -1392,6 +1392,7 @@ GameObject:
   - component: {fileID: 2055651635}
   - component: {fileID: 2055651634}
   - component: {fileID: 2055651638}
+  - component: {fileID: 2055651639}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1503,6 +1504,18 @@ MonoBehaviour:
   komixButton: {fileID: 255864546}
   tutorButton: {fileID: 2136270698}
   tutorContainer: {fileID: 952996308}
+--- !u!114 &2055651639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055651633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce4b8724ea57464480bba1c3cc9ad80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2136270696
 PrefabInstance:
   m_ObjectHideFlags: 0
