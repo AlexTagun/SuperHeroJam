@@ -21,7 +21,10 @@ public class Tower : MonoBehaviour {
     public void GetDamage(float value) {
         _curHP -= value;
         UpdateHpBar();
-        if (_curHP <= 0) Destroy(gameObject);
+        if (_curHP <= 0) {
+            EventManager.HandleOnEndGame(_isEnemy);
+            Destroy(gameObject);
+        }
     }
 
     private void UpdateHpBar() {

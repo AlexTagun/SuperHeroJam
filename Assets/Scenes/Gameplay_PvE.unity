@@ -865,6 +865,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4041434110373866251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3975251053561233947, guid: 61bd93f127b5f044499a8eaad045d565,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041434110373866248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065f2d4ede0dc194091c06a2d8ae1b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4041434110373866252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5640366569864854923, guid: 61bd93f127b5f044499a8eaad045d565,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041434110373866248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275da371a41dbf74a83b74327b549ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5206743007789864435 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3818601842250467936, guid: 61bd93f127b5f044499a8eaad045d565,
@@ -1175,6 +1199,16 @@ PrefabInstance:
       propertyPath: projectileStartPoints.Array.data[2]
       value: 
       objectReference: {fileID: 3203938280404083302}
+    - target: {fileID: 7761590073428821054, guid: 6c4def3eed1fd89458dcb6b858416e18,
+        type: 3}
+      propertyPath: winWindow
+      value: 
+      objectReference: {fileID: 4041434110373866252}
+    - target: {fileID: 7761590073428821054, guid: 6c4def3eed1fd89458dcb6b858416e18,
+        type: 3}
+      propertyPath: loseWindow
+      value: 
+      objectReference: {fileID: 4041434110373866251}
     - target: {fileID: 7761590073428821055, guid: 6c4def3eed1fd89458dcb6b858416e18,
         type: 3}
       propertyPath: m_RootOrder
