@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -61,7 +62,7 @@ public class HandController : MonoBehaviour {
         _rightLineLockContainer.SetActive(false);
 
         StartCoroutine(DrawCoroutine());
-        StartCoroutine(MergeHintCoroutine());
+        // StartCoroutine(MergeHintCoroutine());
         UpdateLinesHighlighting(null);
 
         EventManager.OnGlueWall += LockRandomCard;
@@ -106,6 +107,38 @@ public class HandController : MonoBehaviour {
                 a.MergeHintAnimation();
                 b.MergeHintAnimation();
             }
+        }
+    }
+
+    public void ShowHint(UICard card) {
+        if (card.Type == CardType.Base) {
+            for (int j = 0; j < _hand.Count; j++) {
+                if (_hand[j].Type == CardType.Form) {
+                    _hand[j].MergeHintAnimation();
+                }
+
+                if (_hand[j].Type == CardType.Base) {
+                    if (card.Element != _hand[j].Element) continue;
+                    _hand[j].MergeHintAnimation();
+                }
+            }
+        } else {
+            for (int j = 0; j < _hand.Count; j++) {
+                if (_hand[j].Type == CardType.Form) continue;
+
+                if (_hand[j].Type == CardType.Base) {
+                    _hand[j].MergeHintAnimation();
+                }
+            }
+        }
+        
+    }
+
+    public void StopHint() {
+        for (int i = 0; i < _hand.Count; i++) {
+            _hand[i].transform.DOComplete();
+            _hand[i].transform.DOKill();
+            _hand[i].transform.eulerAngles = Vector3.zero;
         }
     }
 
