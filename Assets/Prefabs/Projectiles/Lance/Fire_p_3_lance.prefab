@@ -101,12 +101,12 @@ PrefabInstance:
     - target: {fileID: 6628599943750986097, guid: 4f8b4e253b678764d961aed4b9df05e7,
         type: 3}
       propertyPath: m_Name
-      value: Earth_p_1_lance_glue
+      value: Fire_p_1_lance
       objectReference: {fileID: 0}
     - target: {fileID: 6707480583534101649, guid: 4f8b4e253b678764d961aed4b9df05e7,
         type: 3}
       propertyPath: _element
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f8b4e253b678764d961aed4b9df05e7, type: 3}

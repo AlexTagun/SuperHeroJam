@@ -11,6 +11,7 @@ public class HandController : MonoBehaviour {
     [SerializeField] private UICard[] _deckRank3;
     [SerializeField] private UICard[] _deckWalls;
     [SerializeField] private UICard[] _deckBalls;
+    [SerializeField] private UICard[] _deckLances;
     [SerializeField] private RectTransform _handContainer;
     [SerializeField] private RectTransform _leftLine;
     [SerializeField] private RectTransform _middleLine;
@@ -110,6 +111,9 @@ public class HandController : MonoBehaviour {
             case FormType.Ball:
                 prefab = _deckBalls.First(card => card.Element == card1.Element && card.Rank == card1.Rank + 1);
                 break;
+            case FormType.Lance:
+                prefab = _deckLances.First(card => card.Element == card1.Element && card.Rank == card1.Rank + 1);
+                break;
         }
         
         var newCard = Instantiate(prefab, _handContainer);
@@ -133,6 +137,9 @@ public class HandController : MonoBehaviour {
                 break;
             case FormType.Ball:
                 pool = _deckBalls;
+                break;
+            case FormType.Lance:
+                pool = _deckLances;
                 break;
         }
 

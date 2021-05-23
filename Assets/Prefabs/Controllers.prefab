@@ -67,6 +67,7 @@ MonoBehaviour:
   - {fileID: 1805079015856515781, guid: c95f1df9a7c835843a58f4dcacb735dc, type: 3}
   - {fileID: 3071992457274627622, guid: 52dfd67c1fc55784b9744777925b4d74, type: 3}
   - {fileID: 3071992457274627622, guid: 75f470283d4b2f142b9ef90650ea04e7, type: 3}
+  - {fileID: 3071992457274627622, guid: 12ddaa9445899494c873733a4b2714c1, type: 3}
   _deckRank2:
   - {fileID: 1805079015856515781, guid: c4e8801c4411cd44aa1bf288c79affd0, type: 3}
   - {fileID: 1805079015856515781, guid: c6472d9988245924babd560f77a753c1, type: 3}
@@ -95,6 +96,16 @@ MonoBehaviour:
   - {fileID: 1805079015856515781, guid: b0cd212fe477dc940bfe1c3e6a36ac61, type: 3}
   - {fileID: 1805079015856515781, guid: 8f883706f645dd94eb54f3c56d2142a8, type: 3}
   - {fileID: 1805079015856515781, guid: acb7a7b5179e13a4689ce5c0fd6798eb, type: 3}
+  _deckLances:
+  - {fileID: 1805079015856515781, guid: befe52120496f1d4e9e0321c3ab73759, type: 3}
+  - {fileID: 1805079015856515781, guid: 085a64b251c28cc4dbff80c16577b642, type: 3}
+  - {fileID: 1805079015856515781, guid: c8b43cba112d5734584c7724f9c551a9, type: 3}
+  - {fileID: 1805079015856515781, guid: da38cd158864a1e41bc6b5366998fdf3, type: 3}
+  - {fileID: 1805079015856515781, guid: db1d2a4f4e3dd87438560fba570ec893, type: 3}
+  - {fileID: 1805079015856515781, guid: 3d09e040ad22e40469ed5c0bc31f4c43, type: 3}
+  - {fileID: 1805079015856515781, guid: 6c5799e6f45a2ec4289e3adf6cc7ffb6, type: 3}
+  - {fileID: 1805079015856515781, guid: e90bfcdd0e15f2c46bcb25873dca352d, type: 3}
+  - {fileID: 1805079015856515781, guid: 087d31f919043f64ca2461c6c17c4e92, type: 3}
   _handContainer: {fileID: 0}
   _leftLine: {fileID: 0}
   _middleLine: {fileID: 0}
