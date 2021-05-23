@@ -14,6 +14,7 @@ public class HandController : MonoBehaviour {
     [SerializeField] private UICard[] _deckWalls;
     [SerializeField] private UICard[] _deckBalls;
     [SerializeField] private UICard[] _deckLances;
+    [SerializeField] private int[] _deckWeights;
     [SerializeField] private RectTransform _handContainer;
     [SerializeField] private RectTransform _leftLine;
     [SerializeField] private RectTransform _middleLine;
@@ -36,10 +37,17 @@ public class HandController : MonoBehaviour {
     private GameObject _leftLineLockContainer;
     private GameObject _middleLineLockContainer;
     private GameObject _rightLineLockContainer;
+    
+    private WeightedList<UICard> _deck = new WeightedList<UICard>();
 
     private void Awake() {
         _playerController = GameObject.FindWithTag("GameController").GetComponent<PlayerController>();
         _energyController = GameObject.FindWithTag("GameController").GetComponent<EnergyController>();
+        
+        for (int i = 0; i < _deckRank1.Length; i++) {
+            _deck.AddEntry(_deckRank1[i], _deckWeights[i]);
+        }
+        
         DrawCard(_startCardCount);
 
         for (int i = _startCardCount; i < _maxCardsInHand; i++) {
@@ -158,7 +166,7 @@ public class HandController : MonoBehaviour {
     private void DrawCard(int count) {
         for (int i = 0; i < count; i++) {
             if (_hand.Count == _maxCardsInHand) break;
-            var newCard = Instantiate(_deckRank1[Random.Range(0, _deckRank1.Length)], _handContainer);
+            var newCard = Instantiate(_deck.GetRandom(), _handContainer);
             newCard.transform.SetSiblingIndex(CalculateSiblingIndex());
             _hand.Add(newCard);
         }
