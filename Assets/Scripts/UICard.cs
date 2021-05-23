@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,6 +43,9 @@ public class UICard : MonoBehaviour {
         for (int i = 0; i < _rank; i++) {
             _stars[i].SetActive(true);
         }
+        
+        transform.localScale = Vector3.zero;
+        transform.DOScale(1, 0.3f);
     }
 
     public ElementType Element => _element;
@@ -63,4 +67,6 @@ public class UICard : MonoBehaviour {
         lockContainer.SetActive(false);
         IsLocked = false;
     }
+    
+    
 }

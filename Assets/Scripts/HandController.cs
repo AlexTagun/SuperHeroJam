@@ -71,6 +71,7 @@ public class HandController : MonoBehaviour {
     private void OnDestroy() {
         EventManager.OnGlueWall -= LockRandomCard;
         EventManager.OnGlueBall -= GlueNextCard;
+        EventManager.OnGlueLance -= LockLine;
     }
 
     private IEnumerator DrawCoroutine() {
