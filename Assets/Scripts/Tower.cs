@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class Tower : MonoBehaviour {
     [SerializeField] private float _maxHP;
     [SerializeField] private bool _isEnemy;
     [SerializeField] private Image hpBar;
+    [SerializeField] private TextMeshProUGUI _text;
 
     public bool IsEnemy => _isEnemy;
 
@@ -30,5 +32,6 @@ public class Tower : MonoBehaviour {
     private void UpdateHpBar() {
         if(hpBar == null) return;
         hpBar.fillAmount = _curHP / _maxHP;
+        _text.text = Mathf.RoundToInt(_curHP).ToString();
     }
 }

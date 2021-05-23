@@ -853,6 +853,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61bd93f127b5f044499a8eaad045d565, type: 3}
+--- !u!114 &4041434110373866249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2574887733675153647, guid: 61bd93f127b5f044499a8eaad045d565,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041434110373866248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4041434110373866250 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 223212889121651863, guid: 61bd93f127b5f044499a8eaad045d565,
@@ -887,6 +899,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 275da371a41dbf74a83b74327b549ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4041434110373866253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7780469654975584639, guid: 61bd93f127b5f044499a8eaad045d565,
+    type: 3}
+  m_PrefabInstance: {fileID: 4041434110373866248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5206743007789864435 stripped
@@ -962,9 +986,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4107921674846752249, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
         type: 3}
+      propertyPath: _text
+      value: 
+      objectReference: {fileID: 4041434110373866249}
+    - target: {fileID: 4107921674846752249, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
+        type: 3}
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 882971746}
+    - target: {fileID: 4829937865041221866, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
+        type: 3}
+      propertyPath: _text
+      value: 
+      objectReference: {fileID: 4041434110373866253}
     - target: {fileID: 4829937865041221866, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
         type: 3}
       propertyPath: hpBar
