@@ -13,9 +13,9 @@ repeat: none
   index: -1
 Body
   rotate: true
-  xy: 2, 3
-  size: 108, 154
-  orig: 108, 154
+  xy: 2, 4
+  size: 107, 154
+  orig: 107, 154
   offset: 0, 0
   index: -1
 Head
