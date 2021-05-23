@@ -19,141 +19,148 @@ Body
   offset: 0, 0
   index: -1
 Head
-  rotate: true
-  xy: 287, 55
+  rotate: false
+  xy: 299, 157
   size: 47, 50
   orig: 47, 50
   offset: 0, 0
   index: -1
+flame
+  rotate: true
+  xy: 204, 79
+  size: 38, 67
+  orig: 40, 69
+  offset: 1, 1
+  index: -1
 helmet
   rotate: false
-  xy: 281, 157
+  xy: 204, 119
   size: 65, 67
   orig: 65, 67
   offset: 0, 0
   index: -1
 helmet_lock
   rotate: true
-  xy: 242, 31
+  xy: 158, 40
   size: 71, 43
   orig: 71, 43
   offset: 0, 0
   index: -1
 l_filter
   rotate: true
-  xy: 242, 309
+  xy: 203, 40
   size: 37, 39
   orig: 37, 39
   offset: 0, 0
   index: -1
 l_hand
-  rotate: false
-  xy: 186, 3
+  rotate: true
+  xy: 321, 69
   size: 37, 25
   orig: 37, 25
   offset: 0, 0
   index: -1
 l_lowerArm
   rotate: true
-  xy: 283, 226
+  xy: 284, 262
   size: 47, 54
   orig: 47, 54
   offset: 0, 0
   index: -1
 l_lowerLeg
-  rotate: true
-  xy: 225, 6
+  rotate: false
+  xy: 260, 213
   size: 22, 56
   orig: 22, 56
   offset: 0, 0
   index: -1
 l_upperArm
-  rotate: true
-  xy: 283, 275
+  rotate: false
+  xy: 285, 51
   size: 34, 55
   orig: 34, 55
   offset: 0, 0
   index: -1
 l_upperLeg
-  rotate: true
-  xy: 204, 155
+  rotate: false
+  xy: 204, 271
   size: 78, 75
   orig: 78, 75
   offset: 0, 0
   index: -1
 lights
   rotate: false
-  xy: 204, 118
+  xy: 295, 14
   size: 48, 35
   orig: 48, 35
   offset: 0, 0
   index: -1
 r_filter
   rotate: true
-  xy: 242, 270
+  xy: 244, 40
   size: 37, 39
   orig: 37, 39
   offset: 0, 0
   index: -1
 r_hand
-  rotate: false
-  xy: 242, 246
+  rotate: true
+  xy: 271, 2
   size: 36, 22
   orig: 36, 22
   offset: 0, 0
   index: -1
 r_knee
   rotate: false
-  xy: 287, 6
+  xy: 299, 108
   size: 47, 47
   orig: 47, 47
   offset: 0, 0
   index: -1
 r_lowerArm
   rotate: true
-  xy: 283, 104
+  xy: 284, 209
   size: 51, 53
   orig: 51, 53
   offset: 0, 0
   index: -1
 r_lowerLeg
-  rotate: false
-  xy: 204, 235
+  rotate: true
+  xy: 218, 2
   size: 36, 51
   orig: 36, 51
   offset: 0, 0
   index: -1
 r_upperArm
-  rotate: false
-  xy: 204, 288
+  rotate: true
+  xy: 158, 2
   size: 36, 58
   orig: 36, 58
   offset: 0, 0
   index: -1
 rocket
   rotate: true
-  xy: 283, 311
+  xy: 284, 311
   size: 35, 62
   orig: 35, 62
   offset: 0, 0
   index: -1
 rocketLauncher
   rotate: true
-  xy: 158, 23
+  xy: 271, 119
   size: 88, 26
   orig: 88, 26
   offset: 0, 0
   index: -1
 supportBack
-  rotate: true
-  xy: 158, 7
+  rotate: false
+  xy: 321, 56
   size: 14, 11
   orig: 14, 11
   offset: 0, 0
   index: -1
 weapon
   rotate: false
-  xy: 186, 30
+  xy: 204, 188
   size: 54, 81
   orig: 54, 81
   offset: 0, 0
