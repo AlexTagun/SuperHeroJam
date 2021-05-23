@@ -1068,6 +1068,11 @@ PrefabInstance:
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 882971746}
+    - target: {fileID: 4107921674846752249, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
+        type: 3}
+      propertyPath: _maxHP
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4155782820264367318, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1083,6 +1088,11 @@ PrefabInstance:
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 5206743007789864435}
+    - target: {fileID: 4829937865041221866, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
+        type: 3}
+      propertyPath: _maxHP
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4960269825129793811, guid: 40d0dd6ee0b19ac4caeffd7183d0501b,
         type: 3}
       propertyPath: m_LocalPosition.x
